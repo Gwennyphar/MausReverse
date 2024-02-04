@@ -6,22 +6,28 @@
         xmlns:local="clr-namespace:MausReverse"
         mc:Ignorable="d"
         Title="MainWindow" Height="298" Width="339">
-
-    <Grid Margin="0,46,0,0">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="149*"/>
-            <ColumnDefinition Width="150*"/>
-        </Grid.ColumnDefinitions>
-        <DockPanel Margin="0,-62,0,0" Height="243" VerticalAlignment="Top" Grid.ColumnSpan="2">
-            <Menu DockPanel.Dock="Top" Height="213" RenderTransformOrigin="0.496,0.574" Background="White">
-                <MenuItem Header="_Menü" Foreground="Black" Background="#FFF0F0F0">
-                    <MenuItem x:Name="btnExit" Header="_Schließen" Click="BtnExit_Click"/>
-                    <Separator />
-                    <MenuItem x:Name="btnInfo" Header="Info" Click="BtnInfo_Click"/>
+    <StackPanel Margin="10">
+        <DockPanel Width="56" HorizontalAlignment="Left">
+            <Menu DockPanel.Dock="Top" Width="98">
+                <MenuItem Header="_Menü" Width="54">
+                    <MenuItem x:Name="btnExit" Header="_Schließen" Click="btnExit_Click"/>
+                    <MenuItem x:Name="btnInfo" Header="Info" Click="btnInfo_Click"/>
                 </MenuItem>
+
             </Menu>
         </DockPanel>
-        <Button x:Name="BtnLeft" Content="Links" HorizontalAlignment="Left" Margin="31,0,0,0" VerticalAlignment="Top" Height="158" Width="104" Click="BtnLeft_Click" Background="#FF85B3DC" FontWeight="Bold" FontSize="18" Foreground="White"/>
-        <Button x:Name="BtnRight" Content="Rechts" HorizontalAlignment="Left" Margin="15,0,0,78" Width="104" Click="BtnRight_Click" Background="#FFA8C1CA" FontWeight="Bold" FontSize="18" Foreground="White" Grid.Column="1"/>
-    </Grid>
+        <Grid Height="136">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="7*"/>
+                <ColumnDefinition Width="37*"/>
+                <ColumnDefinition Width="275*"/>
+            </Grid.ColumnDefinitions>
+            <ComboBox x:Name="Maustaste" SelectedValuePath="Content" VerticalAlignment="Center" Padding="8,3,4,3" Grid.IsSharedSizeScope="True" HorizontalContentAlignment="Left" Margin="171,0,0,0" SelectionChanged="Maustaste_SelectionChanged" RenderTransformOrigin="0.431,1.711" Width="71" Grid.Column="2">
+                <ComboBoxItem x:Name="links" Content="Links"/>
+                <ComboBoxItem x:Name="rechts" Content="Rechts"/>
+            </ComboBox>
+            <Label x:Name="Mausanzeige" Content="Primäre Maustaste" RenderTransformOrigin="0.496,0.544" Margin="0,47,0,53" Background="#FFFAFDF8" ScrollViewer.CanContentScroll="True" HorizontalAlignment="Left" Width="166" FontSize="11" Grid.Column="2" BorderThickness="0,5,0,0"/>
+            <Image Grid.Column="1" Margin="1,44,10,56" Source="/img/icon.png" Stretch="Fill"/>
+        </Grid>
+    </StackPanel>
 </Window>
